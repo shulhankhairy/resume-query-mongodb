@@ -1,0 +1,121 @@
+
+## NAMA : NUR ALIMAH
+## KELAS : SIB2E
+## NIM : 2141762004
+
+
+
+**MongoDB memilii 4 fungsi utama yaitu select insert update delete dan Sort**
+
+## Insert Data
+Pada mongoDB setelah masuk ke dalam database,dapat melakukan insert dengan perintah berikut ini
+
+
+            db.<koleksi>.insert(<data>)
+
+
+ atau
+  
+
+            db.<koleksi>.save(<data>) 
+
+
+koleksi adalah nama koleksi yang akan dibuat data adalah data yang disimpan dalam koleksi tersebut
+
+-  contoh query dengan koleksi bernama buku 
+
+        db.buku.insert({
+            judul: "Belajar MongoDB",
+            sinopsis: "Panduan MongoDB untuk Pemula",
+            pengarang: "Petani Kode"
+        })
+
+
+# Update Data
+Untuk merubah data pada koleksi yang sudah dibuat dapat meenggunakan fungsi update(). Berikut perintah untuk mengupdate data
+
+Queri :
+
+        db.<koleksi>.update(<query>, <data baru>)
+
+Keterangan:
+Query adalah kata kunci yang kita rubah, sama seperti where didalam sql
+daata baru adalah data baru yang ingin kita rubah
+
+
+  - contoh query merubah data buku yaitu merubah harga buku
+                db.buku.update(
+                    {
+                        judul: "Buku Panduan Basis Data Lanjut"
+                    },
+                    {
+                        judul: "Buku Panduan Basis Data Lanjut",
+                        sinopsis: "Buku ini berisi kumpulan kueri kueri",
+                        pengarang: "NA",
+                        harga: 120000
+                    }
+                )
+
+Maka, hasilnya buku tersebut akan berubah harganya menjadi 120000
+
+# Delete
+- Delete data
+
+Untuk menghapus data, kita dapat menggunaka perintah remove()
+
+db.<koleksi>.remove(<query>)
+
+  contoh query untuk menghapus data "Desain Pemorgaman Web"
+
+db.buku.remove({judul: "Desain Pemorgaman Web"})
+
+
+- Delete database dan Koleksi
+
+Bila kita ingin menghapus database dan koleksi, kita bisa menggunakan method drop() dan dropDatabase().
+
+Menghapus koleksi:
+
+db.<koleksi>.drop();
+
+contoh kita akan drop koleksi buku
+
+    db.buku.drop();
+
+Menghapus database:
+
+    db.dropDatabase();
+
+
+# Sorting pada MongdoDB
+Pada mongoDB, sorting menggunakan method sort(). Metode sort() terdiri dari dua blok bangunan dasar. Blok penyusun ini adalah bidang yang akan disortir dan urutan sortir. Urutan penyortiran di MongoDB ditentukan satu(1) dan minus(-1). Disini yang positif mewakili urutan menaik, sedangkan negatif mewakili urutan menurun.
+
+- Sintaks dasar pengurutan
+  
+
+     db.collection_name.find().sort({field_name: sort order})
+
+- Sorting in Ascending Order
+
+Dalam contoh ini, saya menggunakan bidang "make" untuk mendapatkan hasil dalam urutan menaik.Operator satu ({"make":1}) digunakan unntuk menunjukkan urutan menaik.
+
+
+    db.vehicleinformation.find({},{make:1,_id:0}).sort({"make":1})
+
+- Sorting in descending order
+
+Dalam contoh ini, saya menggunakan bidang "make" untuk mendapatkan hasil dalam urutan menaik.Operator minus satu ({"make":-1}) digunakan unntuk menunjukkan urutan menurun.
+
+Contoh sintaks
+
+    db.vehicleinformation.find({},{make:1,_id:0}).sort({"make":-1})
+
+
+
+
+
+
+
+
+
+
