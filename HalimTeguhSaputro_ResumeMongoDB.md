@@ -50,51 +50,35 @@ Dalam mengisi data pada sebuah collection terdapat 3 jenis command yaitu, insert
 
 1. insertOne(), sesuai dengan namanya command ini digunakan untuk menginput atau menambahkan 1 data saja. Contoh:
 
-db.(toko\_kopi).insertOne(
+{
 
-  {
-
+    db.(toko\_kopi).insertOne(
+    {
     nama: "Cappucino",
-
     harga: 20000
-
-  }
-
-)
+    }
+    )
 
 1. insertMany(), untuk insertMany() penggunaannya mirip dengan command sebelumnya namun dengan insertMany() kita dapat mengisi banyak data sekaligus. Contoh:
 
-db.(toko\_kopi).insertMany(
+{
 
-  [
-
-    {
-
-      nama: "Cappucino",
-
-      harga: 20000
-
-    },
-
-    {
-
-      nama: "Coffe Latte",
-
-      harga: 15000
-
-    },
-
-    {
-
-      nama: "Expresso",
-
-      harga: 22000
-
-    },
-
-  ]
-
-)
+    db.(toko\_kopi).insertMany(
+      [
+        {
+          nama: "Cappucino",
+          harga: 20000
+        },
+        {
+        nama: "Coffe Latte",
+        harga: 15000
+        },
+        {
+        nama: "Expresso",
+        harga: 22000
+        },
+      ]
+    )
 
 1. insert(), untuk command ini mirip dengan sebelumnya namun, memiliki kelebihan dari pada dua command sebelumnya, yaitu dapat mengisikan data yang berisikan sebuah data lain (object of document). Contoh:
 
